@@ -20,7 +20,7 @@ dev: build
 # Run the container as a daemon (build not forecd here, sp must build it first)
 run:
 	-docker rm -f fanctrl 2> /dev/null || :
-	docker run -it --name fanctrl \
+	docker run -d --name fanctrl \
             --privileged --restart unless-stopped \
             -e MY_FAN_CONTROL_PWM=$(MY_FAN_CONTROL_PWM) \
             --volume /sys/class/thermal/thermal_zone0/temp:/cputemp \
