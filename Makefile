@@ -17,7 +17,7 @@ dev: build
             --volume `pwd`:/outside \
             ibmosquito/fanctrl:1.0.0 /bin/sh
 
-# Run the container as a daemon (build not forecd here, sp must build it first)
+# Run as a daemon ("build" is not a dependency here, so "make build" first)
 run:
 	-docker rm -f fanctrl 2> /dev/null || :
 	docker run -d --name fanctrl \
